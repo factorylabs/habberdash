@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Factory Design Labs']
   s.email       = ['is.team@factorylabs.com']
   s.homepage    = 'http://github.com/factory/habberdash'
-  s.summary     = %Q{Habberdash: The Rails Dashboard System}
+  s.summary     = %Q{Habberdash: The Rails Dashboard Engine}
   s.description = %Q{Habberdash: Write dashboard widgets, and embed them within your application.}
   s.licenses    = ['MIT']
 
