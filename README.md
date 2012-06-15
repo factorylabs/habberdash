@@ -2,6 +2,6 @@
 
 ## Installation
 
-  gem 'habberdash'
-  rails generate habberdash:install
+    gem 'habberdash'
+    rails generate habberdash:install
 
