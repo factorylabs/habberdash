@@ -1,1 +1,2 @@
-%img{ src: "/assets/backgrounds/standard.jpg", width: "1360", height: "768", alt: "" }
+%img{ src: "/assets/backgrounds/#{@image || 'standard-light.jpg'}", width: "1360", height: "768", alt: "" }
+%h1= @title

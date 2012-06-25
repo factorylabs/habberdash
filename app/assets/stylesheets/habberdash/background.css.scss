@@ -1,0 +1,24 @@
+#background {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  img {
+    z-index: 1;
+  }
+  h1 {
+    z-index: 2;
+    position: absolute;
+    font-size: 210px;
+    right: -20px;
+    bottom: -45px;
+    font-weight: 400;
+    white-space: nowrap;
+    line-height: 210px;
+    text-transform: uppercase;
+  }
+}
