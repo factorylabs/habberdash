@@ -1,0 +1,10 @@
++============================================================================+
+Congratulations!  Habberdash was successfully installed into your application.
+Documentation and other useful information can be found at:
+https://github.com/factorylabs/habberdash
+
+Here's a post install checklist:
+
+* Adjust your application.js & css files to not `require_tree .`
+
+* Write your custom endpoints and widgets.
