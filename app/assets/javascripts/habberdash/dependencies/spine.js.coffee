@@ -1,10 +1,10 @@
 #= require_self
-#= require ./manager
-#= require ./ajax
-#= require ./route
-#= require ./relation
-#= require ./local
-#= require ./touch
+#= require ./spine/manager
+#= require ./spine/ajax
+#= require ./spine/route
+#= require ./spine/relation
+#= require ./spine/local
+#= require ./spine/touch
 
 Events =
   bind: (ev, callback) ->

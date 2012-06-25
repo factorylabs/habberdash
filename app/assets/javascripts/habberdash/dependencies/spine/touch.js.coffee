@@ -1,4 +1,5 @@
-{$} = require('spine')
+Spine = @Spine or require('spine')
+$     = Spine.$
 
 $.support.touch = ('ontouchstart' of window)
 
