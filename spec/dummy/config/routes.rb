@@ -1,4 +1,7 @@
 Dummy::Application.routes.draw do
+
+  mount Habberdash::Engine => '/'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
