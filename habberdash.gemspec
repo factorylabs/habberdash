@@ -18,10 +18,7 @@ Gem::Specification.new do |s|
   # Runtime Dependencies
   s.add_dependency 'rails', '>= 3.2'
   s.add_dependency 'coffee-rails'
-  s.add_dependency 'jquery-rails'
-
-  # Development Dependencies
-  s.add_development_dependency 'uglifier'
+  s.add_dependency 'haml_coffee_assets' # '>= 1.1.1'
 
   # Testing dependencies
   s.add_development_dependency 'rspec-core', '>= 2.8.0'

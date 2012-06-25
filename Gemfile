@@ -12,6 +12,8 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'haml_coffee_assets'
+  gem 'execjs'
 end
 
 gemspec
