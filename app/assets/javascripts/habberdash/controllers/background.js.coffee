@@ -14,10 +14,6 @@ class Habberdash.Background extends Spine.Controller
     @resize()
 
 
-  setTitle: (title) ->
-    @$('h1').html(title)
-
-
   resize: =>
     windowDimensions = {width: $(window).width(), height: $(window).height()}
     windowDimensions.ratio = windowDimensions.width / windowDimensions.height
