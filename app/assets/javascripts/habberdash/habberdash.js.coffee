@@ -23,8 +23,12 @@ class @Habberdash extends Spine.Controller
     # setup routes
     @routes
       # base route - display a dashboard based on id
-      '/:id': (params = {}) -> @initializeDashboard(configuration.dashboard(params['id']))
-      # glob route - redirect to the default dashboard
+      '/:id': (params = {}) ->
+        try
+          @initializeDashboard(configuration.dashboard(params['id']))
+        catch e
+          if e == 'Unknown record' then @navigate("/#{configuration.dashboardName()}", true) else throw e
+      # glob route - redirects to the default dashboard
       '*glob': -> @navigate("/#{configuration.dashboardName()}", true)
 
     # initialize routing
