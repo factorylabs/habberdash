@@ -1,4 +1,5 @@
 require 'habberdash/version'
+require 'habberdash/data_adapter'
 
 module Habberdash
 
