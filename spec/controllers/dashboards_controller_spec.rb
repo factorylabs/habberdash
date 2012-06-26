@@ -8,13 +8,13 @@ describe Habberdash::DashboardsController do
     after  { Habberdash.widget_types = [] }
 
     it 'returns widget names known to Habberdash' do
-      get '/habberdash/widgets.json'
+      get '/widgets.json'
       last_response.body.should == { widgets: [:foo] }.to_json
     end
 
   end
 
-  describe 'dashboard resource methods' do
+  describe 'configuration resource methods' do
 
     let!(:adapter) { Habberdash::DataAdapter.new }
 
@@ -28,13 +28,13 @@ describe Habberdash::DashboardsController do
 
       it "saves the data through the data adapter" do
         adapter.should_receive(:update).with(json)
-        put '/habberdash/dashboard.json', json, "CONTENT_TYPE" => "application/json"
+        put '/configuration.json', json, "CONTENT_TYPE" => "application/json"
       end
 
       context "when the data is saved successfully" do
 
         before do
-          put '/habberdash/dashboard.json', json, "CONTENT_TYPE" => "application/json"
+          put '/configuration.json', json, "CONTENT_TYPE" => "application/json"
         end
 
         specify { last_response.status.should == 200 }
@@ -47,7 +47,7 @@ describe Habberdash::DashboardsController do
 
         before do
           adapter.stub(update: false, errors: errors)
-          put '/habberdash/dashboard.json', json, "CONTENT_TYPE" => "application/json"
+          put '/configuration.json', json, "CONTENT_TYPE" => "application/json"
         end
 
         specify { last_response.status.should == 422 }
@@ -66,7 +66,7 @@ describe Habberdash::DashboardsController do
 
       it "returns the dashboard data" do
         adapter.stub(:to_json).and_return(dashboard_json)
-        get '/habberdash/dashboard.json'
+        get '/configuration.json'
         last_response.body.should == dashboard_json
       end
 

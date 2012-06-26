@@ -11,11 +11,8 @@ class @Habberdash extends Spine.Controller
     super
 
     # load configuration / dashboard data and initialize when done
-    #Habberdash.Configuration.bind('refresh', (configuration) => @initialize(configuration[0]))
-    #Habberdash.Configuration.fetch()
-
-    # for a static configuration use this:
-    @initialize(new Habberdash.Configuration(Habberdash.staticConfiguration))
+    Habberdash.Configuration.bind('refresh', (configuration) => @initialize(configuration[0]))
+    Habberdash.Configuration.fetch()
 
 
   initialize: (configuration) ->
@@ -38,40 +35,3 @@ class @Habberdash extends Spine.Controller
     # initialize base controllers
     @replace(@background = new Habberdash.Background(@dashboard.options()))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
-
-
-
-Habberdash.staticConfiguration = {
-  readonly: false
-  dashboards: [
-    {
-      id: 'foo'
-      title: 'foo'
-      color: '#DDD'
-      backgroundColor: '#FFF'
-      image: 'standard-light.jpg'
-      centerImage: true
-      widgets: [
-        {
-          type: 'twitter'
-          title: 'widget1'
-          endpoint: '/something/'
-        },
-        {
-          type: 'twitter'
-          title: 'widget2'
-          endpoint: '/something/'
-        },
-      ]
-    },
-    {
-      id: 'bar'
-      title: 'bar'
-      color: '#333'
-      backgroundColor: '#111'
-      image: 'standard-dark.jpg'
-      centerImage: true
-      widgets: []
-    }
-  ]
-}

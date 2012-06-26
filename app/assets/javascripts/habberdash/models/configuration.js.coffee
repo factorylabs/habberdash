@@ -3,6 +3,9 @@ class Habberdash.Configuration extends Spine.Model
   @hasMany 'dashboards', 'Habberdash.Dashboard'
   @extend Spine.Model.Ajax
 
+  resourceUrl: -> '/configuration'
+
+
   constructor: ->
     super
     @activeDashboard = @dashboards().first()
