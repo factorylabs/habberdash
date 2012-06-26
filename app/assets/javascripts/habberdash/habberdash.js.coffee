@@ -28,7 +28,7 @@ class @Habberdash extends Spine.Controller
           @initializeDashboard(configuration.dashboard(params['id']))
         catch e
           if e == 'Unknown record' then @navigate("/#{configuration.dashboardName()}", true) else throw e
-      # glob route - redirects to the default dashboard
+      # glob route - redirects to the last dashboard
       '*glob': -> @navigate("/#{configuration.dashboardName()}", true)
 
     # initialize routing
@@ -37,7 +37,7 @@ class @Habberdash extends Spine.Controller
 
   initializeDashboard: (@dashboard) ->
     # initialize base controllers
-    @replace(@background = new Habberdash.Background(@dashboard.toJSON()))
+    @replace(@background = new Habberdash.Background(@dashboard.options()))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
 
 

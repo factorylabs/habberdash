@@ -1,3 +1,3 @@
-class Habberdash.Dashboard extends Spine.Model
-#  @options 'type'
+class Habberdash.Widget extends Habberdash.Model
+  @options 'type'
   @configure 'Widget', 'widgetOptions'
