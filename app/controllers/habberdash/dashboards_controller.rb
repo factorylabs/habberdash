@@ -6,6 +6,12 @@ class Habberdash::DashboardsController < ActionController::Base
   respond_to :json
   respond_to :html, only: [ :show ]
 
+  def show
+    respond_with @adapter do |format|
+      format.html { render nothing: true, layout: 'habberdash' }
+    end
+  end
+
   def widgets
     respond_with({ widgets: Habberdash.widget_types })
   end
@@ -15,12 +21,6 @@ class Habberdash::DashboardsController < ActionController::Base
       head :ok
     else
       respond_with @adapter
-    end
-  end
-
-  def show
-    respond_with @adapter do |format|
-      format.html { render nothing: true, layout: 'habberdash' }
     end
   end
 
