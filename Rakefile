@@ -16,4 +16,4 @@ Cucumber::Rake::Task.new(:cucumber) do |t|
   # t.cucumber_opts = "features --format pretty"
 end
 
-task :default => ['spec:javascripts', :cucumber]
+task :default => ['app:spec', 'spec:javascripts', :cucumber]
