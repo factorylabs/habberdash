@@ -41,7 +41,7 @@ class @Habberdash extends Spine.Controller
 
 
 
-Habberdash.staticConfiguration =
+Habberdash.staticConfiguration = {
   readonly: false
   dashboards: [
     {
@@ -74,3 +74,4 @@ Habberdash.staticConfiguration =
       widgets: []
     }
   ]
+}
