@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'haml_coffee_assets' # '>= 1.1.1'
 
   # Testing dependencies
-  s.add_development_dependency 'rspec-core', '>= 2.8.0'
+  s.add_development_dependency 'rspec-rails', '~> 2.10.1'
   s.add_development_dependency 'evergreen', '>= 1.0.0'
   s.add_development_dependency 'selenium-webdriver', '>= 2.20.0'
   #s.add_development_dependency 'cucumber-rails', '>= 1.3.0'
