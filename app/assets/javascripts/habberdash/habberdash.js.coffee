@@ -1,4 +1,3 @@
-#= require hamlcoffee
 #= require_self
 #= require_tree ./lib
 #= require_tree ./models

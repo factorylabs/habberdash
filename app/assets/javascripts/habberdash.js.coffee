@@ -2,6 +2,7 @@
 #= require habberdash/dependencies/jquery_easing
 #= require habberdash/dependencies/spine
 #= require habberdash/dependencies/native_extensions
+#= require habberdash/dependencies/hamlcoffee
 #= require habberdash/habberdash
 #
 # require your own widgets here
