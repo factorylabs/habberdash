@@ -19,3 +19,5 @@ Gemfile.lock
 /spec/dummy/tmp
 /spec/dummy/log/*.log
 /spec/dummy/db/*.sqlite3
+.autotest
+.rspec
