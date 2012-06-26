@@ -11,46 +11,63 @@ class @Habberdash extends Spine.Controller
   constructor: ->
     super
 
-    # Load configuration / dashboard data and initialize when done
-    @initialize(Habberdash.defaultConfiguration)
+    # load configuration / dashboard data and initialize when done
     #Habberdash.Configuration.bind('refresh', (configuration) => @initialize(configuration[0]))
     #Habberdash.Configuration.fetch()
 
+    # for a static configuration use this:
+    @initialize(new Habberdash.Configuration(Habberdash.staticConfiguration))
+
 
   initialize: (configuration) ->
-    # Setup routes
+    # setup routes
     @routes
-      '/': (params = {}) -> @navigate('/0')
-      '/:id': (params = {}) ->
-        console.debug(params)
-        @configuration = configuration[params['id']]
-        @initializeBase()
+      # base route - display a dashboard based on id
+      '/:id': (params = {}) -> @initializeDashboard(configuration.dashboard(params['id']))
+      # glob route - redirect to the default dashboard
+      '*glob': -> @navigate("/#{configuration.dashboardName()}", true)
 
-    # Initialize routing
+    # initialize routing
     Spine.Route.setup()
 
 
-  initializeBase: ->
-    # Initialize base controllers
-    @append(@background = new Habberdash.Background(@configuration))
+  initializeDashboard: (@dashboard) ->
+    # initialize base controllers
+    @replace(@background = new Habberdash.Background(@dashboard.options()))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
 
 
-Habberdash.defaultConfiguration = {
-  'something': {
-    title: 'Something'
-    color: '#DDD'
-    backgroundColor: '#FFF'
-    image: 'standard-light.jpg'
-    centerImage: true
-    widgets: []
-  },
-  'another': {
-    title: 'Another'
-    color: '#333'
-    backgroundColor: '#111'
-    image: 'standard-dark.jpg'
-    centerImage: true
-    widgets: []
-  }
-}
+
+Habberdash.staticConfiguration =
+  readonly: false
+  dashboards: [
+    {
+      id: 'foo'
+      title: 'foo'
+      color: '#DDD'
+      backgroundColor: '#FFF'
+      image: 'standard-light.jpg'
+      centerImage: true
+      widgets: [
+        {
+          type: 'twitter'
+          title: 'widget1'
+          endpoint: '/something/'
+        },
+        {
+          type: 'twitter'
+          title: 'widget2'
+          endpoint: '/something/'
+        },
+      ]
+    },
+    {
+      id: 'bar'
+      title: 'bar'
+      color: '#333'
+      backgroundColor: '#111'
+      image: 'standard-dark.jpg'
+      centerImage: true
+      widgets: []
+    }
+  ]
