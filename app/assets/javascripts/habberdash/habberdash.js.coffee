@@ -37,7 +37,7 @@ class @Habberdash extends Spine.Controller
 
   initializeDashboard: (@dashboard) ->
     # initialize base controllers
-    @replace(@background = new Habberdash.Background(@dashboard.options()))
+    @replace(@background = new Habberdash.Background(@dashboard.toJSON()))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
 
 

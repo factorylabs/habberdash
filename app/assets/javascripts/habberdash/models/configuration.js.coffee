@@ -6,7 +6,6 @@ class Habberdash.Configuration extends Spine.Model
   constructor: ->
     super
     @activeDashboard = @dashboards().first()
-    console.debug(@activeDashboard)
 
 
   dashboard: (id = null) ->
