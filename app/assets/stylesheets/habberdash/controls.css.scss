@@ -1,0 +1,59 @@
+#controls {
+  position: absolute;
+  z-index: 1000;
+  width: 109px;
+  bottom: 0;
+  left: 0;
+  h1 {
+    position: relative;
+    z-index: 1002;
+    height: 120px;
+    line-height: 120px;
+    overflow: hidden;
+    background: #f39a59;
+    background: -moz-linear-gradient(-45deg,  #f39a59 0%, #d77e3d 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f39a59), color-stop(100%,#d77e3d));
+    background: -webkit-linear-gradient(-45deg,  #f39a59 0%,#d77e3d 100%);
+    background: -o-linear-gradient(-45deg,  #f39a59 0%,#d77e3d 100%);
+    background: -ms-linear-gradient(-45deg,  #f39a59 0%,#d77e3d 100%);
+    background: linear-gradient(135deg,  #f39a59 0%,#d77e3d 100%);
+    font-size: 90px;
+    text-align: center;
+    &:hover {
+      color: #fff;
+    }
+  }
+  ul {
+    position: absolute;
+    z-index: 1001;
+    width: 100%;
+    bottom: 120px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    list-style: none;
+    color: #a5a4a4;
+    li {
+      line-height: normal;
+      text-align: center;
+      padding: 0 0 10px;
+      border: 1px solid #222;
+      border-left: 0;
+      border-bottom: 0;
+      font-size: 16px;
+      i {
+        display: block;
+        padding: 0;
+        width: 100%;
+        font-size: 65px;
+        text-align: center;
+      }
+      &:hover {
+        i {
+          color: #fe9142
+        }
+      }
+    }
+  }
+}

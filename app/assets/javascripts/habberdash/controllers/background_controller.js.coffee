@@ -1,4 +1,4 @@
-class Habberdash.Background extends Spine.Controller
+class Habberdash.BackgroundController extends Spine.Controller
 
   constructor: ->
     @attributes = {id: 'background'}

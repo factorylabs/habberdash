@@ -7,15 +7,23 @@
 # Spine Application
 class @Habberdash extends Spine.Controller
 
+  @baseConfig:
+    speed: 1
+
+
   constructor: ->
     super
 
     # load configuration / dashboard data and initialize when done
+    Habberdash.loadingIndicator()
     Habberdash.Configuration.bind('refresh', (configuration) => @initialize(configuration[0]))
     Habberdash.Configuration.fetch()
 
 
   initialize: (configuration) ->
+    Habberdash.config = $.extend(Habberdash.baseConfig, configuration)
+    Habberdash.loadingIndicator.hide()
+
     # setup routes
     @routes
       # base route - display a dashboard based on id
@@ -32,7 +40,10 @@ class @Habberdash extends Spine.Controller
 
 
   initializeDashboard: (@dashboard) ->
+    @$el.html('')
+    Habberdash.Modal.instance?.hide()
+
     # initialize base controllers
-    @replace(@background = new Habberdash.Background({dashboard: @dashboard}))
-    @append(@settings = new Habberdash.Settings({dashboard: @dashboard}))
+    @append(@background = new Habberdash.BackgroundController({dashboard: @dashboard}))
+    @append(@controls = new Habberdash.ControlsController({dashboard: @dashboard}))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))

@@ -1,7 +1,9 @@
 /*
  *= require_self
- *= require ./background
  *= require ./loading_indicator
+ *= require ./modal
+ *= require ./background
+ *= require ./controls
  */
 body {
   overflow: hidden

@@ -1,0 +1,58 @@
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .modal-container {
+    position: fixed;
+    z-index: 10001;
+    top: 20px;
+    background: #d4d5d5 url(/assets/modal-background.jpg) center;
+    opacity: 0;
+    overflow: hidden;
+    display: none;
+    -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    h1.modal-title {
+      margin: 0;
+      padding: 3px 10px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      white-space: nowrap;
+      i.modal-close {
+        float: right;
+        width: 25px;
+        height: 25px;
+        line-height: 21px;
+        margin: 6px 0 0;
+        font-weight: normal;
+        cursor: pointer;
+      }
+    }
+    .modal-content-container {
+      display: none;
+      overflow: auto;
+      .modal-content {
+        padding: 20px 20px;
+      }
+    }
+  }
+  &.loading {
+    .modal-container {
+      background-image: url(/assets/ajax-loader-light.gif);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

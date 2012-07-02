@@ -1,0 +1,13 @@
+%h1
+  %i.icon-cog
+
+%ul
+  %li{ data: {action: 'Widgets'} }
+    %i.icon-plus-sign
+    Widgets
+  %li{ data: {action: 'Settings'} }
+    %i.icon-cogs
+    Settings
+  %li{ data: {action: 'Dashboards'} }
+    %i.icon-dashboard
+    Dashboards

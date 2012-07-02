@@ -27,14 +27,6 @@ Spine.Controller.include
       else
         @el.delegate(selector, eventName, method)
 
-  release: (callback) ->
-    for event in @releaseEvents || []
-      $(event.element)[event.unbindMethod](event.eventName, event.method)
-    if typeof callback is 'function'
-      @bind 'release', callback
-    else
-      @trigger 'release'
-
 
 # Model Additions
 #----------------------------------------------------------------------------------------------------/
