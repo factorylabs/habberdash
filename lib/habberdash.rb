@@ -1,10 +1,5 @@
 require 'habberdash/version'
-
 require 'habberdash/persistence/base'
-require 'habberdash/persistence/active_record'
-require 'habberdash/persistence/redis'
-require 'habberdash/persistence/mongoid'
-
 require 'habberdash/data_adapter'
 
 module Habberdash

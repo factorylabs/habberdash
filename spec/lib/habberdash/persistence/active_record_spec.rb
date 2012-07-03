@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'habberdash/active_record'
 
 module Habberdash
 

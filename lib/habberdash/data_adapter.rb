@@ -22,8 +22,8 @@ module Habberdash
       # instances.
       #
       attr_accessor :persistence_strategy
+
     end
-    self.persistence_strategy = Habberdash::Persistence::ActiveRecord
 
     # @api private
     #

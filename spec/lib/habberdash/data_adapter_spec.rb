@@ -4,10 +4,6 @@ module Habberdash
 
   describe DataAdapter do
 
-    it "has a default persistence strategy" do
-      Habberdash::DataAdapter.persistence_strategy.should be Habberdash::Persistence::ActiveRecord
-    end
-
     shared_examples_for :safe_delegator do
 
       it "ensures a persistence strategy" do
