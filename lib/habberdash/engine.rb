@@ -3,6 +3,7 @@ require 'rails'
 module Habberdash
 
   class Engine < ::Rails::Engine
+    engine_name 'habberdash'
 
     # Additional application configuration to include precompiled assets.
     #
