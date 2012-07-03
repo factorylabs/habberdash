@@ -16,4 +16,15 @@ Cucumber::Rake::Task.new(:cucumber) do |t|
   # t.cucumber_opts = "features --format pretty"
 end
 
+namespace :spec do
+
+  desc 'Prepare the rails app DB for tests'
+  task :prepare do
+    `cd spec/dummy && rake db:test:load`
+  end
+
+end
+
+namespace(:app) { task :spec => 'spec:prepare' }
+
 task :default => ['app:spec', 'spec:javascripts', :cucumber]
