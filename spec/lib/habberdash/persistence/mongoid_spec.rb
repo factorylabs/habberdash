@@ -66,7 +66,7 @@ module Habberdash
             end
 
             it 'returns true' do
-              subject.update(json).should be_true
+              subject.update(json).should be true
             end
           end
 
@@ -78,7 +78,7 @@ module Habberdash
           end
 
           it 'returns false' do
-            subject.update(json).should be_false
+            subject.update(json).should be false
           end
 
           it 'adds an error to the errors collection' do

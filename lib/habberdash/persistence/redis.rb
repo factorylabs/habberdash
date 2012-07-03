@@ -52,7 +52,7 @@ module Habberdash
       #
       def update(dashboard_config)
         begin
-          self.class.client.set REDIS_KEY, dashboard_config
+          self.class.client.set(REDIS_KEY, dashboard_config) == 'OK'
         rescue Exception => e
           add_error "Couldn't persist via Redis: #{e.message}" and return false
         end
