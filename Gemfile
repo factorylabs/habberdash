@@ -6,6 +6,7 @@ gem 'evergreen', git: 'https://github.com/factorylabs/evergreen.git', submodules
 # Dependencies for the dummy app
 gem 'sqlite3'
 gem 'json'
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.
