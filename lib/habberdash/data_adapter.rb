@@ -63,7 +63,7 @@ module Habberdash
     # Overridden to wrap the result of `#get` in top-level configuration data.
     #
     def to_json(options = {})
-      #%Q{[{"id":"foo","title":"foo","color":"#222","backgroundColor":"#000","image":"standard-dark.jpg","centerImage":true,"widgets":[{"type":"twitter","title":"widget1","endpoint":"/something/"},{"type":"twitter","title":"widget2","endpoint":"/something/"}]},{"id":"bar","title":"bar","color":"#fff","backgroundColor":"#ddd","image":"standard-light.jpg","centerImage":true,"widgets":[]}]}
+      get = %Q{[{"id":"foo","title":"foo","color":"#222","backgroundColor":"#000","image":"standard-dark.jpg","centerImage":true,"widgets":[{"type":"twitter","title":"widget1","endpoint":"/something/"},{"type":"twitter","title":"widget2","endpoint":"/something/"}]},{"id":"bar","title":"bar","color":"#fff","backgroundColor":"#ddd","image":"standard-light.jpg","centerImage":true,"widgets":[]}]}
       %Q{[{"id": "habberdash", "readonly": false, "dashboards": #{get}}]}
     end
 

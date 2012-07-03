@@ -5,7 +5,7 @@ gem 'evergreen', git: 'https://github.com/factorylabs/evergreen.git', submodules
 
 # Dependencies for the dummy app
 gem 'sqlite3'
-gem 'mongoid' # won't load the mongoid.yml config file unless this is here. TODO
+gem 'mongoid', require: false # won't load the mongoid.yml config file unless this is here. TODO
 gem 'json'
 gem 'pry'
 
