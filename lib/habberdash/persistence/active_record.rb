@@ -8,7 +8,8 @@ module Habberdash
     #
     # This is the default, so to use this adapter in a Rails app, run:
     #
-    #     rake habberdash:install:migrations db:migrate
+    #     rake habberdash:install:migrations
+    #     rake db:migrate
     #
     class ActiveRecord < Habberdash::Persistence::Base
 
