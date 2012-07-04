@@ -22,7 +22,8 @@ class Habberdash.DashboardsController extends Habberdash.Modal
       dashboard = Habberdash.config.dashboards().find(clone).dup()
       dashboard.updateAttributes(serialized)
     else
-      dashboard = Habberdash.config.dashboards().create($.extend(Habberdash.Dashboard.defaults, serialized))
+      serialized['configuration_id'] = Habberdash.config.id
+      dashboard = new Habberdash.Dashboard($.extend(Habberdash.Dashboard.defaults, serialized))
 
     return @displayErrors(form, dashboard.validate()) unless dashboard.save()
     @navigate("/#{dashboard.id}")
