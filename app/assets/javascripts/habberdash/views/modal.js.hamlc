@@ -1,7 +1,7 @@
 .modal-overlay
 .modal-container
   %h1.modal-title
-    %span
     %i.icon-remove-circle.modal-close
+    %span
   .modal-content-container
     .modal-content
