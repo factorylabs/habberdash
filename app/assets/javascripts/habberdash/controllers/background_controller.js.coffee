@@ -4,12 +4,13 @@ class Habberdash.BackgroundController extends Spine.Controller
     @attributes = {id: 'background'}
     super
 
-    @options = @dashboard.options()
+    @options = $.extend(@options, @dashboard.attributes())
 
     @html(@view('background', @options))
-    @$el.css({backgroundColor: @options.backgroundColor, color: @options.color})
 
+    @$el.css({backgroundColor: @options.backgroundColor, color: @options.color})
     @$image = @$('img')
+
     @imageDimensions = {width: parseInt(@$image.attr('width'), 10), height: parseInt(@$image.attr('height'), 10)}
     @imageDimensions.ratio = @imageDimensions.width / @imageDimensions.height
 

@@ -4,5 +4,5 @@ class Habberdash.DashboardsController extends Habberdash.Modal
     @attributes = {class: 'dashboards'}
     super({title: 'Dashboards'})
 
-    @html(@view('dashboards'), Habberdash.config)
+    @html(@view('dashboards', Habberdash.config))
     @show()

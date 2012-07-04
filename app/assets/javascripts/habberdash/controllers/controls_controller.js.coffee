@@ -9,13 +9,14 @@ class Habberdash.ControlsController extends Spine.Controller
     @attributes = {id: 'controls'}
     super
 
-    @options = @dashboard.options()
+    @opened = false
+    @options = $.extend(@options, @dashboard.attributes())
+
     @html(@view('controls', @options))
 
     @$control = @$('h1')
     @$navigation = @$('ul').hide()
-    @opened = false
-    
+
 
   toggle: ->
     if @opened
