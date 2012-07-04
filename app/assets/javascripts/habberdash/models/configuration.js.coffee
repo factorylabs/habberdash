@@ -4,10 +4,12 @@ class Habberdash.Configuration extends Spine.Model
   @extend Spine.Model.Ajax
 
   resourceUrl: -> '/configuration'
+  recordUrl: -> '/configuration'
 
 
   constructor: ->
     super
+    @speed = 1
     @activeDashboard = @storedDashboard()
 
 
@@ -15,7 +17,7 @@ class Habberdash.Configuration extends Spine.Model
     if id
       @activeDashboard = @dashboards().find(id)
       document.cookie = "dashboard=#{id}"
-    @activeDashboard
+    return @activeDashboard
 
 
   dashboardName: ->
@@ -25,5 +27,12 @@ class Habberdash.Configuration extends Spine.Model
   storedDashboard: ->
     stored = document.cookie.match(/dashboard=([^;]*)/)
     if stored?[1] && @dashboards().count()
-      return @dashboards().find(stored[1])
-    @dashboards().first()
+      try
+        return @dashboards().find(stored[1])
+      catch e
+    return @dashboards().first()
+
+
+  toJSON: ->
+    for dashboard in @dashboards().all()
+      dashboard.toJSON()

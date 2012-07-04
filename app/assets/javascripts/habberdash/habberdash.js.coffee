@@ -9,10 +9,6 @@ class @Habberdash extends Spine.Controller
 
   @Widgets: {}
 
-  @baseConfig:
-    speed: 1
-
-
   @widgets: ->
     for name, configuration of Habberdash.Widgets
       console.debug(Habberdash.Widgets[name].spec.name)
@@ -28,7 +24,7 @@ class @Habberdash extends Spine.Controller
 
 
   initialize: (configuration) ->
-    Habberdash.config = $.extend(Habberdash.baseConfig, configuration)
+    Habberdash.config = configuration
     Habberdash.loadingIndicator.hide()
 
     # setup routes
