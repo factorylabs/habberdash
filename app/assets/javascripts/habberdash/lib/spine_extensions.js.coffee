@@ -9,20 +9,34 @@ Spine.Controller.include
     try console.log(arguments)
     catch e
 
-  delegateEvents: (events) ->
-    @releaseEvents ||= []
-    for key, method of events
-      unless typeof(method) is 'function'
-        method = @proxy(@[method])
+  displayErrors: (form, errors) ->
+    form.find('.error, .warning').removeClass('error warning')
+    form.find('span.help-inline').remove()
+    for name, msg of errors
+      form.find("[name=#{name}]").
+      after("<span class='help-inline'>#{msg}.</span>").
+      closest('.control-group').
+      addClass('error')
+    @resize?()
 
-      match      = key.match(@eventSplitter)
-      eventName  = match[1]
-      selector   = match[2]
+# Valdatable Model -- Inherit from this if you want validation helper methods.
+#----------------------------------------------------------------------------------------------------/
+class Spine.ValidatableModel extends Spine.Model
 
-      if selector is ''
-        @el.bind(eventName, method)
-      if selector is 'hotkey'
-        $(document).bind('keydown', eventName, method)
-        @releaseEvents.push({element: document, unbindMethod: 'unbind', eventName: 'keydown', method: method})
-      else
-        @el.delegate(selector, eventName, method)
+  constructor: ->
+    super
+    @errors = {length: 0, attributes: {}}
+
+
+  validate: ->
+    return @errors.attributes if @errors.length
+
+
+  addError: (attr, msg) ->
+    if @errors.attributes[attr]
+      if @errors.attributes[attr].indexOf(msg) == -1
+        @errors.attributes[attr].push(msg)
+        @errors.length += 1
+    else
+      @errors.attributes[attr] = [msg]
+      @errors.length += 1
