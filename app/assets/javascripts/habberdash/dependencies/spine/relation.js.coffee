@@ -13,6 +13,9 @@ class Collection extends Spine.Module
   first: ->
     @all()[0]
 
+  count: ->
+    @all().length
+
   last: ->
     values = @all()
     values[values.length - 1]
