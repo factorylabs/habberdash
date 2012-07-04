@@ -1,1 +1,9 @@
-%h3 widgets
+%div{ style: 'width:700px;height:700px;' }
+  - for name, klass of Habberdash.Widgets
+    .widget{ data: {filter: "#{klass.spec.name}:#{klass.spec.summary}", name: name} }
+      %img{ src: "#{klass.spec.image}", width: 150, height: 126 }
+      %dl
+        %dt Name
+        %dd= klass.spec.name
+        %dt Summary
+        %dd= klass.spec.summary

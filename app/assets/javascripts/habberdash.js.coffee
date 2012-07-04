@@ -7,5 +7,6 @@
 #= require habberdash/habberdash
 #
 # require your own widgets here
+#= require_tree ./habberdash/widgets
 #
 jQuery -> new Habberdash({el: $('#dashboard')})

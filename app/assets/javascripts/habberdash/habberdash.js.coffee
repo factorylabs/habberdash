@@ -7,8 +7,15 @@
 # Spine Application
 class @Habberdash extends Spine.Controller
 
+  @Widgets: {}
+
   @baseConfig:
     speed: 1
+
+
+  @widgets: ->
+    for name, configuration of Habberdash.Widgets
+      console.debug(Habberdash.Widgets[name].spec.name)
 
 
   constructor: ->
@@ -28,6 +35,7 @@ class @Habberdash extends Spine.Controller
     @routes
       # base route - display a dashboard based on id
       '/:id': (params = {}) ->
+        @navigate("/#{configuration.dashboardName()}", true) unless params['id']
         try
           @initializeDashboard(configuration.dashboard(params['id']))
         catch e

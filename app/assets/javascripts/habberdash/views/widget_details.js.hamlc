@@ -1,0 +1,16 @@
+%div{ style: 'width:700px;height:700px;' }
+  %span.back Back
+  %img{ src: "#{@spec.image}", width: 150, height: 126 }
+  %dl
+    %dt Name
+    %dd= @spec.name
+    %dt Version
+    %dd= @spec.version
+    %dt Authors
+    %dd= @spec.authors
+    %dt Email
+    %dd= @spec.email
+    %dt Homepage
+    %dd= @spec.homepage
+
+  %p= @spec.description
