@@ -20,5 +20,3 @@ class Habberdash.Dashboard extends Spine.ValidatableModel
 
     @addError('image', 'URL is malformed') unless /((http|https):\/)?\/?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i.test(@image)
     super
-
-

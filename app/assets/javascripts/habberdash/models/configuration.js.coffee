@@ -10,6 +10,10 @@ class Habberdash.Configuration extends Spine.Model
   constructor: ->
     super
     @speed = 1
+
+    unless @dashboards().count()
+      @dashboards().create(dashboard) for dashboard in Habberdash.defaultDashboards
+
     @activeDashboard = @storedDashboard()
 
 

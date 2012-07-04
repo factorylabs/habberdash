@@ -63,7 +63,7 @@ module Habberdash
     # Overridden to wrap the result of `#get` in top-level configuration data.
     #
     def to_json(options = {})
-      %Q{[{"id": "habberdash", "readonly": false, "dashboards": #{get}}]}
+      %Q{[{"id": "habberdash", "readonly": false, "dashboards": #{get || '[]'}}]}
     end
 
     private
