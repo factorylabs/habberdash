@@ -13,12 +13,13 @@
   h1 {
     z-index: 2;
     position: absolute;
-    font-size: 210px;
+    font-size: 14em;
     right: -20px;
-    bottom: -45px;
+    bottom: -0.3em;
     font-weight: 400;
     white-space: nowrap;
-    line-height: 210px;
+    line-height: 1.2em;
     text-transform: uppercase;
+    opacity: 0.75;
   }
 }
