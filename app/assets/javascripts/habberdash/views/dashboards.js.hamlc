@@ -7,7 +7,17 @@
   %fieldset
     %legend New Dashboard
     .control-group
-      %label.control-label{ for: 'input01' } Text input
+      %label.control-label{ for: 'dashboard_title' } Dashboard name
       .controls
-        %input#input01.input-xlarge{ type: 'text' }
-        %p.help-block Supporting help text
+        %input#dashboard_title.input-xlarge{ name: 'title', type: 'text' }
+        %p.help-inline The URL slug will be generated from this.
+    .control-group
+      %label.control-label{ for: 'dashboard_color' } Clone from
+      .controls
+        %select#dashboard_clone{ name: 'clone' }
+          %option{ value: '' } None
+          - for dashboard in @dashboards().all()
+            %option{ value: dashboard.id }= dashboard.title
+
+  .form-actions
+    %button.btn.btn-primary{ type: 'submit' } Save changes

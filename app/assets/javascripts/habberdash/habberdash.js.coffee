@@ -51,3 +51,48 @@ class @Habberdash extends Spine.Controller
     @append(@background = new Habberdash.BackgroundController({dashboard: @dashboard}))
     @append(@controls = new Habberdash.ControlsController({dashboard: @dashboard}))
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
+
+
+Habberdash.staticConfiguration = [
+  {
+    id: "habberdash",
+    readonly: false
+    dashboards: [
+      {
+        id: "foo",
+        title: "foo",
+        color: "#222",
+        image: "/assets/backgrounds/standard-dark.jpg",
+        backgroundType: 'center-scale',
+        widgets: [
+          {
+            type: "twitter",
+            title: "widget1",
+            endpoint: "/something/"
+          },
+          {
+            type: "twitter",
+            title: "widget2",
+            endpoint: "/something/"
+          }
+        ]
+      },
+      {
+        id: "bar",
+        title: "bar",
+        color: "#ddd",
+        image: "/assets/backgrounds/standard-light.jpg",
+        backgroundType: 'center-scale',
+        widgets: []
+      }
+      {
+        id: "Nike",
+        title: "Nike",
+        color: "#0b5173",
+        image: "/assets/backgrounds/nike.jpg",
+        backgroundType: 'center-scale',
+        widgets: []
+      }
+    ]
+  }
+]
