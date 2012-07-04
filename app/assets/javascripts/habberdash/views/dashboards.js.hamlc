@@ -1,28 +1,13 @@
-%h1 WOOT!
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%p there's more here!
+%ul
+  - for dashboard in @dashboards().all()
+    %li
+      %a{ href: "#/#{dashboard.id}" }= dashboard.title
+
+%form.form-horizontal
+  %fieldset
+    %legend New Dashboard
+    .control-group
+      %label.control-label{ for: 'input01' } Text input
+      .controls
+        %input#input01.input-xlarge{ type: 'text' }
+        %p.help-block Supporting help text
