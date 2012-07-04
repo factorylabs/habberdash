@@ -3,10 +3,6 @@ class Habberdash.Modal extends Spine.Controller
 
   @instance: null
 
-  events:
-    'tap .modal-close': 'hide'
-
-
   constructor: (options) ->
     if Habberdash.Modal.instance
       Habberdash.Modal.instance.update(options)
@@ -38,6 +34,7 @@ class Habberdash.Modal extends Spine.Controller
       options.success = (content) =>
         @loadContent(content)
 
+    @$('.modal-close').on('click', @onClose)
     @$overlay.on('click', @onClose)
     $(document).on('keydown', @onClose)
     $(window).on('resize', @position)
