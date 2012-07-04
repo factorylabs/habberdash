@@ -30,6 +30,8 @@
       -moz-user-select: none;
       user-select: none;
       white-space: nowrap;
+      -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
       i.modal-close {
         float: right;
         width: 25px;
