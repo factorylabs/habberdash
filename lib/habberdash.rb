@@ -24,3 +24,4 @@ module Habberdash
 end
 
 require 'habberdash/engine' if defined?(Rails)
+require 'haml_coffee_assets'
