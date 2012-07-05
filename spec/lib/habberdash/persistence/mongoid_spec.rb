@@ -1,6 +1,8 @@
 require 'spec_helper'
 require 'habberdash/mongoid'
 
+Mongoid::Config.load! Rails.root.join("config/mongoid.yml").to_s, Rails.env.to_s
+
 module Habberdash
 
   module Persistence
