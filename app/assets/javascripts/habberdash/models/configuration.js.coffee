@@ -18,6 +18,7 @@ class Habberdash.Configuration extends Spine.Model
     @activeDashboard = @storedDashboard()
 
     Habberdash.Dashboard.bind 'save', => @save()
+    Habberdash.Dashboard.bind 'destroy', => @save()
 
 
   dashboard: (id = null) ->
