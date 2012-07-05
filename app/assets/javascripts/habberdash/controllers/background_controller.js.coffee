@@ -9,7 +9,7 @@ class Habberdash.BackgroundController extends Spine.Controller
     @html(@view('background', @options))
     @initialize()
 
-    Habberdash.Dashboard.bind 'update', =>
+    Habberdash.Dashboard.bind 'save', =>
       @options = $.extend(@options, Habberdash.config.dashboardAttributes())
       @initialize()
 
@@ -19,6 +19,7 @@ class Habberdash.BackgroundController extends Spine.Controller
     @$el.css({color: @options.color}).find('h1').html(@options.title)
 
     if @options.backgroundType == 'center-scale' || @options.backgroundType == 'scale'
+      @$image.show()
       @imageDimensions = {width: parseInt(@$image.attr('width'), 10), height: parseInt(@$image.attr('height'), 10)}
       @imageDimensions.ratio = @imageDimensions.width / @imageDimensions.height
       $(window).on('resize', @resize)
