@@ -4,6 +4,10 @@ module Habberdash
 
   describe DataAdapter do
 
+    before do
+      subject.stub(:persistence).and_return(stub(get: nil, update: nil, errors: nil))
+    end
+
     shared_examples_for :safe_delegator do
 
       it "ensures a persistence strategy" do
@@ -52,7 +56,7 @@ module Habberdash
 
       it  "wraps the dashboard configuration" do
         subject.stub(:get).and_return('{"foo":"barbifbaz"}')
-        subject.to_json.should == '[{"id": "habberdash", "readonly": false, "dashboards": {"foo":"barbifbaz"}}]'
+        subject.to_json.should == '[{"id":"habberdash","readonly":false,"dashboards":{"foo":"barbifbaz"}}]'
       end
 
     end

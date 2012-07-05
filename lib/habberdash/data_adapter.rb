@@ -27,13 +27,13 @@ module Habberdash
 
     # @api private
     #
-    attr_accessor :persistence
+    attr_accessor :persistence, :config
 
     # Create a new DataAdapter. Optionally pass a persistence adapter instance to
     # override the default set at `DataAdapter.persistence_strategy`
     #
-    def initialize(persistence_strategy = self.class.persistence_strategy.try(:new))
-      @errors, @persistence = [], persistence_strategy
+    def initialize(config = {}, persistence_strategy = self.class.persistence_strategy.try(:new))
+      @errors, @config, @persistence = [], config, persistence_strategy
     end
 
     # Returns any errors on the persistence adapter. Delegated to the
@@ -63,10 +63,14 @@ module Habberdash
     # Overridden to wrap the result of `#get` in top-level configuration data.
     #
     def to_json(options = {})
-      %Q{[{"id": "habberdash", "readonly": false, "dashboards": #{get || '[]'}}]}
+      [config_defaults.merge(config)].to_json.gsub('"[[dashboards]]"', get || '[]')
     end
 
     private
+
+    def config_defaults
+      { "id" => "habberdash", "readonly" => false, "dashboards" => "[[dashboards]]" }
+    end
 
     # @api private
     #

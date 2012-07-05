@@ -17,6 +17,13 @@ module Habberdash
       #require 'habberdash/some_lib'
     end
 
+    initializer "habberdash.controller_helpers" do
+      ActiveSupport.on_load :action_controller  do
+        include Habberdash::Controllers::Helper
+        helper Habberdash::Controllers::Helper
+      end
+    end
+
   end
 
 end

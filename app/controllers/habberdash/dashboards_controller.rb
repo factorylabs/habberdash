@@ -27,7 +27,7 @@ class Habberdash::DashboardsController < ActionController::Base
   private
 
   def assign_adapter
-    @adapter = Habberdash::DataAdapter.new
+    @adapter = Habberdash::DataAdapter.new(readonly: !can_edit_habberdash?)
   end
 
 end
