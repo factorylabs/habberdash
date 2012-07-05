@@ -27,6 +27,10 @@ class Habberdash.SettingsController extends Habberdash.Modal
 
   destroy: (e) ->
     e.preventDefault()
-    Habberdash.config.destroyDashboard()
+    if Habberdash.config.dashboards().count() == 1
+      alert("You can't delete your last dashboard.")
+    else
+      return unless confirm('Are you sure?')
+      Habberdash.config.destroyDashboard()
 
     @navigate("/#{Habberdash.config.dashboard().id}")
