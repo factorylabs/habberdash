@@ -9,7 +9,7 @@ class Habberdash.Dashboard extends Spine.Model
 
 
   constructor: (attrs = {}) ->
-    super($.extend(Habberdash.Dashboard.defaults, attrs))
+    super($.extend({}, Habberdash.Dashboard.defaults, attrs))
 
 
   validate: ->
