@@ -10,10 +10,14 @@ class Habberdash.Configuration extends Spine.Model
     super
     @speed = 1
 
+    return unless @id
+
     unless @dashboards().count()
       @dashboards().create(dashboard) for dashboard in Habberdash.defaultDashboards
 
     @activeDashboard = @storedDashboard()
+
+    Habberdash.Dashboard.bind 'save', => @save()
 
 
   dashboard: (id = null) ->

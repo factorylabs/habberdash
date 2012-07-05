@@ -9,7 +9,7 @@ class Habberdash.Dashboard extends Spine.Model
 
 
   constructor: (attrs = {}) ->
-    super($.extend(attrs, Habberdash.Dashboard.defaults))
+    super($.extend(Habberdash.Dashboard.defaults, attrs))
 
 
   validate: ->
@@ -28,5 +28,5 @@ class Habberdash.Dashboard extends Spine.Model
       attrs['id'] = attrs['id'].toDash()
       if Habberdash.Dashboard.findByAttribute('id', attrs['id'])
         throw "Dashboard id (#{attrs['id']}) already taken."
-      @changeID(attrs['id'])
+      @changeID(attrs['id'], false)
     super

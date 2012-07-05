@@ -294,12 +294,12 @@ class Model extends Module
     @load(atts)
     @save(options)
 
-  changeID: (id) ->
+  changeID: (id, save = true) ->
     records = @constructor.records
     records[id] = records[@id]
     delete records[@id]
     @id = id
-    @save()
+    @save() if save
 
   destroy: (options = {}) ->
     @trigger('beforeDestroy', options)
