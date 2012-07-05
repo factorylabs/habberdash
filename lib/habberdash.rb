@@ -1,8 +1,14 @@
-require 'habberdash/version'
-require 'habberdash/persistence/base'
-require 'habberdash/data_adapter'
-
 module Habberdash
+  autoload :VERSION, 'habberdash/version'
+  autoload :DataAdapter, 'habberdash/data_adapter'
+
+  module Persistence
+    autoload :Base, 'habberdash/persistence/base'
+  end
+
+  module Controllers
+    autoload :Helper, 'habberdash/controllers/helper'
+  end
 
   # The canonical source for displaying available widget types to the end-user.
   #
