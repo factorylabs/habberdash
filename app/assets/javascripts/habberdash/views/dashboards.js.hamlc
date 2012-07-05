@@ -14,7 +14,7 @@
     .control-group
       %label.control-label{ for: 'dashboard_color' } Clone from
       .controls
-        %select#dashboard_clone{ name: 'clone' }
+        %select#dashboard_clone{ name: 'clone_id' }
           %option{ value: '' } None
           - for dashboard in @dashboards().all()
             %option{ value: dashboard.id }= dashboard.title

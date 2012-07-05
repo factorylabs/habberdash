@@ -4,21 +4,27 @@ class Habberdash.BackgroundController extends Spine.Controller
     @attributes = {id: 'background'}
     super
 
-    @options = $.extend(@options, @dashboard.attributes())
+    @options = $.extend(@options, Habberdash.config.dashboardAttributes())
 
     @html(@view('background', @options))
+    @initialize()
 
-    @$el.css({color: @options.color})
-    @$image = @$('img')
+    Habberdash.Dashboard.bind 'update', =>
+      @options = $.extend(@options, Habberdash.config.dashboardAttributes())
+      @initialize()
 
-    @imageDimensions = {width: parseInt(@$image.attr('width'), 10), height: parseInt(@$image.attr('height'), 10)}
-    @imageDimensions.ratio = @imageDimensions.width / @imageDimensions.height
+
+  initialize: ->
+    @$image = @$('img').attr('src', @options.image)
+    @$el.css({color: @options.color}).find('h1').html(@options.title)
 
     if @options.backgroundType == 'center-scale' || @options.backgroundType == 'scale'
+      @imageDimensions = {width: parseInt(@$image.attr('width'), 10), height: parseInt(@$image.attr('height'), 10)}
+      @imageDimensions.ratio = @imageDimensions.width / @imageDimensions.height
       $(window).on('resize', @resize)
       @resize()
     else
-      @$image.delete()
+      @$image.hide()
       if @options.backgroundType == 'center'
         @$el.css({background: "url(#{@options.image}) no-repeat center"})
       else

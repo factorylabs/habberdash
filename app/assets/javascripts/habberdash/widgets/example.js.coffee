@@ -13,7 +13,6 @@ class Habberdash.Widgets.Example2 extends Habberdash.Widget
 
   @addDependency 'Liquid Metal', 'https://raw.github.com/rmm5t/liquidmetal/master/liquidmetal.js'
 
-
 #  @options:
 #    title: ['string', 'testing', {maxLength: 20}]
 #    endpoint: ['string', 'testing', {something: 20}]

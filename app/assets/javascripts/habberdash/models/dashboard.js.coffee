@@ -1,4 +1,4 @@
-class Habberdash.Dashboard extends Spine.ValidatableModel
+class Habberdash.Dashboard extends Spine.Model
   @configure 'Dashboard', 'title', 'color', 'image', 'backgroundType'
   @belongsTo 'configuration', 'Habberdash.Configuration'
 
@@ -8,15 +8,25 @@ class Habberdash.Dashboard extends Spine.ValidatableModel
     backgroundType: 'center-scale' # tile, center, scale
 
 
-  constructor: ->
-    super
+  constructor: (attrs = {}) ->
+    super($.extend(attrs, Habberdash.Dashboard.defaults))
 
 
   validate: ->
-    @addError('title', "Can't be blank") unless @title
+    super
+    @addError('title', "can't be blank") unless @title
 
-    @addError('color', "Can't be blank") unless @color
-    @addError('color', 'Is malformed') unless /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i.test(@color)
+    @addError('color', "can't be blank") unless @color
+    @addError('color', 'is malformed') unless /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i.test(@color)
 
-    @addError('image', 'URL is malformed') unless /((http|https):\/)?\/?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i.test(@image)
+    @addError('image', 'is malformed') unless /((http|https):\/)?\/?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i.test(@image)
+    return @errors.attributes if @errors.length
+
+
+  updateAttributes: (attrs, options) ->
+    if attrs['id'] && @id && attrs['id'] != @id
+      attrs['id'] = attrs['id'].toDash()
+      if Habberdash.Dashboard.findByAttribute('id', attrs['id'])
+        throw "Dashboard id (#{attrs['id']}) already taken."
+      @changeID(attrs['id'])
     super

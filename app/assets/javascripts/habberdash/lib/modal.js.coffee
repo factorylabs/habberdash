@@ -23,7 +23,7 @@ class Habberdash.Modal extends Spine.Controller
     @$title = @$('.modal-title')
 
     @bindEvents()
-    @appendTo($(@options.appendTo).get(0) || 'body')
+    @appendTo($(@options.appendTo).get(0) ? 'body')
 
 
   initialize: ->

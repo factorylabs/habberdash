@@ -48,8 +48,8 @@ class @Habberdash extends Spine.Controller
     Habberdash.Modal.instance?.hide()
 
     # initialize base controllers
-    @append(@background = new Habberdash.BackgroundController({dashboard: @dashboard}))
-    @append(@controls = new Habberdash.ControlsController({dashboard: @dashboard}))
+    @append(@background = new Habberdash.BackgroundController())
+    @append(@controls = new Habberdash.ControlsController())
 #    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
 
 

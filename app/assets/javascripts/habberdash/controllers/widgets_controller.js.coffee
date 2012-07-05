@@ -4,6 +4,7 @@ class Habberdash.WidgetsController extends Habberdash.Modal
     'tap img': 'onInstallWidget'
     'tap .back': 'back'
 
+
   constructor: ->
     @attributes = {class: 'widgets'}
     super({title: 'Add a Widget'})

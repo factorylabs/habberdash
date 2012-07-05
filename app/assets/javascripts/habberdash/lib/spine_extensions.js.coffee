@@ -13,6 +13,10 @@ Spine.Controller.include
     form.find('.error, .warning').removeClass('error warning')
     form.find('span.help-inline').remove()
     for name, msg of errors
+      unless typeof(msg) == 'string'
+        length = msg.length
+        msg = msg.join(', ').replace(/, ([^,]*)$/, ($1, $2) -> ", and #{$2}")
+
       form.find("[name=#{name}]").
       after("<span class='help-inline'>#{msg}.</span>").
       closest('.control-group').
@@ -21,16 +25,10 @@ Spine.Controller.include
 
 # Valdatable Model -- Inherit from this if you want validation helper methods.
 #----------------------------------------------------------------------------------------------------/
-class Spine.ValidatableModel extends Spine.Model
-
-  constructor: ->
-    super
-    @errors = {length: 0, attributes: {}}
-
-
+Spine.Model.include
   validate: ->
-    return @errors.attributes if @errors.length
-
+    @errors = {length: 0, attributes: {}}
+    return null
 
   addError: (attr, msg) ->
     if @errors.attributes[attr]

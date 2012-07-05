@@ -9,11 +9,11 @@ class Habberdash.ControlsController extends Spine.Controller
     @attributes = {id: 'controls'}
     super
 
-    @opened = false
-    @options = $.extend(@options, @dashboard.attributes())
+    @options = $.extend(@options, Habberdash.config.dashboardAttributes())
 
     @html(@view('controls', @options))
 
+    @opened = false
     @$control = @$('h1')
     @$navigation = @$('ul').hide()
 

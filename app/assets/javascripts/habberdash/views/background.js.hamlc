@@ -1,2 +1,2 @@
 %img{ src: @image, width: "1360", height: "768", alt: "" }
-%h1= @title
+%h1

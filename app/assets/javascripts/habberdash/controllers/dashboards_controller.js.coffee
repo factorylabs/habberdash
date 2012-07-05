@@ -3,6 +3,7 @@ class Habberdash.DashboardsController extends Habberdash.Modal
   events:
     'submit form': 'create'
 
+
   constructor: ->
     @attributes = {class: 'dashboards'}
     super({title: 'Dashboards'})
@@ -14,16 +15,9 @@ class Habberdash.DashboardsController extends Habberdash.Modal
   create: (e) ->
     e.preventDefault()
     form = $(e.target)
-    serialized = form.serializeObject()
-    id = serialized['title'].toDash()
-    serialized['id'] = id unless Habberdash.config.dashboards().findByAttribute('id', id)
+    params = form.serializeObject()
 
-    if clone = form.find('#dashboard_clone').val()
-      dashboard = Habberdash.config.dashboards().find(clone).dup()
-      dashboard.updateAttributes(serialized)
-    else
-      serialized['configuration_id'] = Habberdash.config.id
-      dashboard = new Habberdash.Dashboard($.extend(Habberdash.Dashboard.defaults, serialized))
-
+    dashboard = Habberdash.config.createDashboard(params)
     return @displayErrors(form, dashboard.validate()) unless dashboard.save()
+
     @navigate("/#{dashboard.id}")

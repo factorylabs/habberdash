@@ -6,7 +6,6 @@ class Habberdash.Configuration extends Spine.Model
   resourceUrl: -> '/configuration'
   recordUrl: -> '/configuration'
 
-
   constructor: ->
     super
     @speed = 1
@@ -26,6 +25,35 @@ class Habberdash.Configuration extends Spine.Model
 
   dashboardName: ->
     @dashboard().id
+
+
+  dashboardAttributes: ->
+    @dashboard().attributes()
+
+
+  findDashboard: (attr, value) ->
+    @dashboards().findByAttribute(attr, value)
+
+
+  createDashboard: (attrs) ->
+    attrs['configuration_id'] = @id
+    attrs['id'] = attrs['title']?.toDash()
+    if attrs['clone_id']
+      dashboard = @dashboards().find(attrs['clone_id']).dup()
+      dashboard.updateAttributes(attrs)
+    else
+      dashboard = new Habberdash.Dashboard(attrs)
+    return dashboard
+
+
+  updateDashboard: (attrs, options) ->
+    @dashboard().updateAttributes(attrs, options)
+    return @dashboard()
+
+
+  destroyDashboard: ->
+    @dashboard().destroy()
+    @dashboard(@storedDashboard().id)
 
 
   storedDashboard: ->
