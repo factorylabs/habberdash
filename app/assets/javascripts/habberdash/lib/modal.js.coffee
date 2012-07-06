@@ -72,14 +72,16 @@ class Habberdash.Modal extends Spine.Controller
 #      @$('h1.modal-title .modal-close').hide()
 
 
-  resize: ->
+  resize: (fadeContent = true) ->
     css = @calculatePositions()
 
     @$container.stop().animate css['container'], 200 * Habberdash.config.speed, 'easeInOutSine', =>
-      @$content.css($.extend(css['content'], {display: 'block', visibility: 'visible', opacity: 0}))
+      @$content.css($.extend(css['content'], {display: 'block', visibility: 'visible', opacity: if fadeContent then 0 else 1}))
       @$paneContainer.css(css['panes']) if css['panes']
-      @$content.animate({opacity: 1}, 100 * Habberdash.config.speed, 'easeInOutSine')
-
+      if fadeContent
+        @$content.animate({opacity: 1}, 100 * Habberdash.config.speed, 'easeInOutSine')
+      else
+        @$content.show().css({opacity: 1})
 
 
   position: =>

@@ -21,7 +21,7 @@ Spine.Controller.include
       after("<span class='help-inline'>#{msg}.</span>").
       closest('.control-group').
       addClass('error')
-    @resize?()
+    @resize?(false)
 
   addCss: (options = {}) ->
     sheet = document.styleSheets[0]
