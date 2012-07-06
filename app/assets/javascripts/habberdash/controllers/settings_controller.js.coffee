@@ -7,7 +7,7 @@ class Habberdash.SettingsController extends Habberdash.Modal
 
   constructor: ->
     @attributes = {class: 'settings'}
-    super({title: 'Settings'})
+    super({title: 'Dashboard Settings'})
 
     @html(@view('settings', Habberdash.config.dashboardAttributes()))
     @show()

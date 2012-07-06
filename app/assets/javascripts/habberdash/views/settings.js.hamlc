@@ -1,32 +1,34 @@
-.destroy Delete This Dashboard
+.span9
+  .row
+    .span9
+      %form.form-horizontal
+        %fieldset
+          .control-group
+            %label.control-label{ for: 'dashboard_name' } New Title
+            .controls
+              %input#dashboard_name.span7{ name: 'title', type: 'text', value: @title }
+          .control-group
+            %label.control-label{ for: 'dashboard_id' } URL Slug
+            .controls
+              %input#dashboard_id.span7{ name: 'id', type: 'text', value: @id }
+          .control-group
+            %label.control-label{ for: 'dashboard_color' } Color
+            .controls
+              %input#dashboard_color.span2{ name: 'color', type: 'text', placeholder: '#FFF', value: @color }
+          .control-group
+            %label.control-label{ for: 'dashboard_image' } Image
+            .controls
+              %input#dashboard_image.span7{ name: 'image', type: 'text', placeholder: '/assets/backgrounds/standard-dark.jpg', value: @image }
+          .control-group
+            %label.control-label{ for: 'dashboard_background_type' } Image Style
+            .controls
+              %select#dashboard_background_type{ name: 'backgroundType' }
+                %option{ value: 'center-scale', selected: @backgroundType == 'center-scale' } Center and Scale
+                %option{ value: 'center', selected: @backgroundType == 'center' } Center
+                %option{ value: 'scale', selected: @backgroundType == 'scale' } Scale
+                %option{ value: 'tile', selected: @backgroundType == 'tile' } Tile
 
-%form.form-horizontal
-  %fieldset
-    %legend Dashboard Settings
-    .control-group
-      %label.control-label{ for: 'dashboard_name' } Dashboard Title
-      .controls
-        %input#dashboard_name.input-xlarge{ name: 'title', type: 'text', value: @title }
-    .control-group
-      %label.control-label{ for: 'dashboard_id' } Dashboard Slug
-      .controls
-        %input#dashboard_id.input-xlarge{ name: 'id', type: 'text', value: @id }
-    .control-group
-      %label.control-label{ for: 'dashboard_color' } Color
-      .controls
-        %input#dashboard_color.input-xlarge{ name: 'color', type: 'text', placeholder: '#FFF', value: @color }
-    .control-group
-      %label.control-label{ for: 'dashboard_image' } Image
-      .controls
-        %input#dashboard_image.input-xlarge{ name: 'image', type: 'text', placeholder: '/assets/backgrounds/standard-dark.jpg', value: @image }
-    .control-group
-      %label.control-label{ for: 'dashboard_background_type' } Image Style
-      .controls
-        %select#dashboard_background_type.input-xlarge{ name: 'backgroundType' }
-          %option{ value: 'center-scale', selected: @backgroundType == 'center-scale' } Center and Scale
-          %option{ value: 'center', selected: @backgroundType == 'center' } Center
-          %option{ value: 'scale', selected: @backgroundType == 'scale' } Scale
-          %option{ value: 'tile', selected: @backgroundType == 'tile' } Tile
+        .form-actions
+          %button.btn.btn-danger.destroy{ type: 'button' } Delete This Dashboard
+          %button.btn.btn-primary{ type: 'submit' } Save Changes
 
-  .form-actions
-    %button.btn.btn-primary{ type: 'submit' } Save changes

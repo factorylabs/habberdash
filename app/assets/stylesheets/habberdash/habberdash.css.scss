@@ -4,4 +4,26 @@
  *= require ./modal
  *= require ./background
  *= require ./controls
+ *= require ./dashboards
+ *= require ./settings
  */
+.habberdash {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+  .btn {
+    border: 0;
+    padding: 7px 20px;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.5em;
+    line-height: normal;
+  }
+  .btn-primary {
+    border: 0;
+    background: #666;
+    &:hover {
+      background: #333;
+    }
+  }
+}
