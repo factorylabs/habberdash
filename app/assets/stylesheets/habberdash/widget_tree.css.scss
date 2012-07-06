@@ -1,0 +1,20 @@
+#widgets {
+  width: 940px;
+  height: 100%;
+  margin: 20px auto;
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+  &::after {
+    clear: both;
+  }
+  .widget {
+    height: 400px;
+    margin-bottom: 20px;
+    background: green;
+  }
+}
+
+//@media (min-width: 768px) and (max-width: 940px) {
+//}

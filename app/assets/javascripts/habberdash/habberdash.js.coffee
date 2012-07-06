@@ -47,10 +47,24 @@ class @Habberdash extends Spine.Controller
     @$el.html('')
     Habberdash.Modal.instance?.hide()
 
+#    $('#widgets .row').sortable({ opacity: 0.6 })
+#    $("#widgets .widget").draggable({
+#      distance: 5
+#      stack: '.widget'
+#      opacity: 0.6,
+#      grid: [20, 20]
+#      containment: [-20,20,1000000,1000000]
+#      scrollSensitivity: 10
+#      scrollSpeed: 10
+#      drag: (event, ui) ->
+#        el = $(this)
+#        $(this).css({left: 100}) if ui.offset.left < 100
+#    })
+
     # initialize base controllers
     @append(@background = new Habberdash.BackgroundController())
     @append(@controls = new Habberdash.ControlsController())
-#    @append(@widgetTree = new Habberdash.Widget(@configuration.widgets))
+    @append(@widgetTree = new Habberdash.WidgetTreeController())
 
 
 Habberdash.defaultDashboards = [
