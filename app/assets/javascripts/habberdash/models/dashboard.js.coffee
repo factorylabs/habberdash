@@ -27,8 +27,9 @@ class Habberdash.Dashboard extends Spine.Model
     if attrs['id'] && @id && attrs['id'] != @id
       attrs['id'] = attrs['id'].toSlug()
       if Habberdash.Dashboard.findByAttribute('id', attrs['id'])
-        throw "Dashboard id (#{attrs['id']}) already taken."
-      @changeID(attrs['id'], false)
+        delete(attrs.id)
+      else
+        @changeID(attrs['id'], false)
     super
 
 

@@ -21,7 +21,7 @@ class Habberdash.SettingsController extends Habberdash.Modal
     dashboard = Habberdash.config.updateDashboard(params)
     if !dashboard.isValid() || !params['id']
       errors = dashboard.validate() || {}
-      errors['id'] = "can't be blank" unless params['id']
+      errors['id'] = "can't be blank, or is already taken" unless params['id']
       return @displayErrors(form, errors)
 
     @navigate("/#{dashboard.id}", false)

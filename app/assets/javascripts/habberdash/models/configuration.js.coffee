@@ -46,6 +46,7 @@ class Habberdash.Configuration extends Spine.Model
       dashboard = @dashboards().find(attrs['clone_id']).dup()
       dashboard.updateAttributes(attrs)
     else
+      delete(attrs.id) if attrs['id'] && Habberdash.Dashboard.findByAttribute('id', attrs['id'])
       dashboard = new Habberdash.Dashboard(attrs)
     return dashboard
 
