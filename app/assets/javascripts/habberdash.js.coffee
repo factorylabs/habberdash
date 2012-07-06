@@ -1,7 +1,6 @@
 # jQuery and jQuery UI -- and other plugins
 #= require habberdash/dependencies/jquery-1.7.2
 #= require habberdash/dependencies/jquery-ui-1.8.21.custom
-#= require habberdash/dependencies/jquery_ui_drag_collision
 #= require habberdash/dependencies/jquery_easing
 #= require habberdash/dependencies/jquery_serialize_object
 #
