@@ -1,6 +1,8 @@
 #= require habberdash/dependencies/jquery-1.7.2
+#= require habberdash/dependencies/jquery-ui-1.8.21.custom
 #= require habberdash/dependencies/jquery_easing
 #= require habberdash/dependencies/jquery_serialize_object
+#= require habberdash/dependencies/mousetrap
 #= require habberdash/dependencies/bootstrap
 #= require habberdash/dependencies/spine
 #= require habberdash/dependencies/native_extensions
