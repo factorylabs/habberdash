@@ -8,7 +8,6 @@ Habberdash.extend {
         subLocale = if locale.length > 1 then topLocale["_#{locale[1].toUpperCase()}_"]
       if !@I18n[locale[0]]
         locale = @localization.preferedLocale
-        console.debug(locale[0])
         topLocale = @I18n[locale[0]] || {}
         subLocale = if locale.length > 1 then topLocale["_#{locale[1].toUpperCase()}_"]
     return @determinedLocale = {top: topLocale || {}, sub: subLocale || {}}
