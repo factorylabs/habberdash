@@ -83,3 +83,17 @@ complicated or not well documented.
 
 We've included all javascript dependencies as internal javascript dependencies to help mitigate the requirements for
 you, while also providing a solid and well documented structure to build on top of.
+
+
+## Sounds
+
+We've included some basic sounds so you can use them in your widgets.  You can add your own, or replace the ones we've
+provided.
+
+Here's attribution and links back to the original audio files on freesound.org:
+
+- [success.mp3 - by grunz](http://www.freesound.org/people/grunz/sounds/109662/)
+- [notice.mp3 - by CommanderRobot](http://www.freesound.org/people/CommanderRobot/sounds/28143/)
+- [notice-alt.mp3 - by theta4](http://www.freesound.org/people/theta4/sounds/66136/)
+- [warning.mp3 - by guitarguy1985](http://www.freesound.org/people/guitarguy1985/sounds/68999/)
+- [error.mp3 - by fonogeno](http://www.freesound.org/people/fonogeno/sounds/19185/)

@@ -12,6 +12,9 @@
 #= require habberdash/dependencies/raphael/g_line
 #= require habberdash/dependencies/raphael/g_pie
 #
+# Audio playback
+#= require habberdash/dependencies/buzz.js
+#
 # Bootstrap (only tooltip)
 #= require habberdash/dependencies/bootstrap
 #
