@@ -9,7 +9,7 @@ class Habberdash.WidgetsController extends Habberdash.Modal
     @attributes = {class: 'widgets'}
     super({title: 'Add a Widget'})
 
-    @html(@view('widgets', Habberdash.config))
+    @html(@view('widget_list', Habberdash.config))
     @show()
 
 

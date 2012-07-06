@@ -1,0 +1,6 @@
+#widgets
+  .row
+    -#.widget.twitter.span12{ style: 'background:red' }
+    -#.widget.twitter.span4{ style: 'background:blue' }
+    -#.widget.twitter.span4{ style: 'background:purple' }
+    -#.widget.twitter.span4
