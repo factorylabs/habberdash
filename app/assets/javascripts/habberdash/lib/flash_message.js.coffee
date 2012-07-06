@@ -37,4 +37,5 @@ $.extend Habberdash.flash,
     @content = ''
     @options = {}
     @visible = false
-    @$el.stop().animate({opacity: 0}, 1000, 'easeInOutSine')
+    @$el.stop().animate {opacity: 0}, 1000, 'easeInOutSine', =>
+      @$el.hide()

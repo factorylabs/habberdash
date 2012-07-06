@@ -47,15 +47,15 @@ class Habberdash.ControlsController extends Spine.Controller
 
   hide: ->
     Habberdash.flash('Press ESC to show the controls again')
-    @toggle()
-    @$el.hide()
+    @$el.stop().animate {left: -(@$el.outerWidth() + 50)}, 200 * Habberdash.config.speed, 'easeInOutSine', =>
+      @toggle()
 
 
   show: (e = null) =>
     if e
       return unless e.keyCode == 27
       $(document).off('keydown', @show)
-    @$el.show()
+    @$el.stop().animate {left: 0}, 200 * Habberdash.config.speed, 'easeInOutSine', =>
 
 
   onAction: (e) ->
