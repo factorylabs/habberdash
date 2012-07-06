@@ -1,11 +1,3 @@
-#= require_self
-#= require ./spine/manager
-#= require ./spine/ajax
-#= require ./spine/route
-#= require ./spine/relation
-#= require ./spine/local
-#= require ./spine/touch
-
 Events =
   bind: (ev, callback) ->
     evs   = ev.split(' ')
