@@ -16,6 +16,8 @@ class Habberdash.BackgroundController extends Spine.Controller
 
   initialize: ->
     @$image = @$('img').attr('src', @options.image)
+    @$image.hide() unless @options.image
+
     @$el.css({color: @options.color}).find('h1').html(@options.title)
 
     if @options.backgroundType == 'center-scale' || @options.backgroundType == 'scale'
