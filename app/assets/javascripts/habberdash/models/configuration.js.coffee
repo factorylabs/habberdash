@@ -12,8 +12,7 @@ class Habberdash.Configuration extends Spine.Model
 
     return unless @id
 
-    unless @dashboards().count()
-      @dashboards().create(dashboard) for dashboard in Habberdash.defaultDashboards
+    @dashboards().create(Habberdash.defaultDashboard) unless @dashboards().count()
 
     @activeDashboard = @storedDashboard()
 

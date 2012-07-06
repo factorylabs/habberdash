@@ -1,13 +1,11 @@
-#widgets {
-  width: 940px;
+#widget_tree {
+  position: fixed;
+  width: 100%;
   height: 100%;
-  margin: 20px auto;
-  &::before, &::after {
-    display: table;
-    content: "";
+  margin: 20px;
+  &.draggable {
   }
-  &::after {
-    clear: both;
+  &.sortable {
   }
   .widget {
     height: 400px;
