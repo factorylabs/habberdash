@@ -19,7 +19,10 @@ class Habberdash.SettingsController extends Habberdash.Modal
     params = form.serializeObject()
 
     dashboard = Habberdash.config.updateDashboard(params)
-    return @displayErrors(form, dashboard.validate()) unless dashboard.isValid()
+    if !dashboard.isValid() || !params['id']
+      errors = dashboard.validate() || {}
+      errors['id'] = "can't be blank" unless params['id']
+      return @displayErrors(form, errors)
 
     @navigate("/#{dashboard.id}", false)
     @hide()
