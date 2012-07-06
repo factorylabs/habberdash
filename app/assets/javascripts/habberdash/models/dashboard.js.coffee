@@ -19,13 +19,13 @@ class Habberdash.Dashboard extends Spine.Model
     @addError('color', "can't be blank") unless @color
     @addError('color', 'is malformed') unless /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i.test(@color)
 
-    @addError('image', 'is malformed') unless /((http|https):\/)?\/?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i.test(@image)
+    @addError('image', 'is malformed') if @image && !/((http|https):\/)?\/?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i.test(@image)
     return @errors.attributes if @errors.length
 
 
   updateAttributes: (attrs, options) ->
     if attrs['id'] && @id && attrs['id'] != @id
-      attrs['id'] = attrs['id'].toDash()
+      attrs['id'] = attrs['id'].toSlug()
       if Habberdash.Dashboard.findByAttribute('id', attrs['id'])
         throw "Dashboard id (#{attrs['id']}) already taken."
       @changeID(attrs['id'], false)

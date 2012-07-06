@@ -1,23 +1,25 @@
-%ul
-  - for dashboard in @dashboards().all()
-    %li
-      %a{ href: "#/#{dashboard.id}" }= dashboard.title
+.span9{ style: 'height:430px' }
+  .row
+    .span4
+      %h3 Existing Dashboards
+      %ul.sortable-list
+        - for dashboard in @dashboards().all()
+          %li{ data: {path: "/#{dashboard.id}"} }= dashboard.title
 
-%form.form-horizontal
-  %fieldset
-    %legend New Dashboard
-    .control-group
-      %label.control-label{ for: 'dashboard_title' } Dashboard name
-      .controls
-        %input#dashboard_title.input-xlarge{ name: 'title', type: 'text' }
-        %p.help-inline The URL slug will be generated from this.
-    .control-group
-      %label.control-label{ for: 'dashboard_color' } Clone from
-      .controls
-        %select#dashboard_clone{ name: 'clone_id' }
-          %option{ value: '' } None
-          - for dashboard in @dashboards().all()
-            %option{ value: dashboard.id }= dashboard.title
+    %form.span5
+      %fieldset
+        .control-group
+          %label.control-label{ for: 'dashboard_title' } New Dashboard Name
+          .controls
+            %input#dashboard_title.span5{ name: 'title', type: 'text' }
+            %p.help-inline The URL slug will be generated from this.
+        .control-group
+          %label.control-label{ for: 'dashboard_color' } Clone From Existing
+          .controls
+            %select#dashboard_clone.span5{ name: 'clone_id' }
+              %option{ value: '' } None
+              - for dashboard in @dashboards().all()
+                %option{ value: dashboard.id }= dashboard.title
 
-  .form-actions
-    %button.btn.btn-primary{ type: 'submit' } Save changes
+      .form-actions
+        %button.btn.btn-primary{ type: 'submit' } Create Dashboard

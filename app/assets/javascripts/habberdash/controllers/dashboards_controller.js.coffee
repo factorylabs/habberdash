@@ -2,6 +2,7 @@ class Habberdash.DashboardsController extends Habberdash.Modal
 
   events:
     'submit form': 'create'
+    'tap [data-path]': 'switch'
 
 
   constructor: ->
@@ -10,6 +11,18 @@ class Habberdash.DashboardsController extends Habberdash.Modal
 
     @html(@view('dashboards', Habberdash.config))
     @show()
+
+
+  initialize: ->
+    @$(".sortable-list").disableSelection().sortable {
+      axis: 'y'
+      placeholder: "placeholder"
+    }
+
+
+  switch: (e) ->
+    path = $(e.target).closest('[data-path]').data('path')
+    @navigate(path)
 
 
   create: (e) ->

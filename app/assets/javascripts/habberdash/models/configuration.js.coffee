@@ -42,7 +42,7 @@ class Habberdash.Configuration extends Spine.Model
 
   createDashboard: (attrs) ->
     attrs['configuration_id'] = @id
-    attrs['id'] = attrs['title']?.toDash()
+    attrs['id'] = attrs['title']?.toSlug()
     if attrs['clone_id']
       dashboard = @dashboards().find(attrs['clone_id']).dup()
       dashboard.updateAttributes(attrs)
