@@ -1,17 +1,22 @@
 #= require_self
 #= require_tree ./lib
+#= require_tree ./locales
 #= require_tree ./models
 #= require_tree ./controllers
 #= require_tree ./views
 
 # Spine Application
 class @Habberdash extends Spine.Controller
-
   @Widgets: {}
 
   @widgets: ->
     for name, configuration of Habberdash.Widgets
       console.debug(Habberdash.Widgets[name].spec.name)
+
+  @localization:
+    enabled: true
+    determined: false
+    preferedLocale: ['en', 'US']
 
   @defaultDashboard:
     id: "intro"

@@ -162,7 +162,8 @@ class Habberdash.Modal extends Spine.Controller
     @contents = true
     @$display.html(element.el or element)
     @refreshElements()
-    @el
+    Habberdash.translateHtml(@$el)
+    @$el
 
 
   release: ->
