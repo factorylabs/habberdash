@@ -30,7 +30,7 @@ $.extend Habberdash.loadingIndicator,
     @$overlay.show().css({opacity: 0})
     @$overlay.stop().animate {opacity: 1}, 200, 'easeInOutSine', =>
       @$el.show().css({opacity: 0})
-      @$el.stop().stop().animate {opacity: 1}, 200, 'easeInOutSine', =>
+      @$el.stop().animate {opacity: 1}, 200, 'easeInOutSine', =>
         @visible = true
 
 

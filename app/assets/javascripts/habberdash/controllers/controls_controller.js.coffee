@@ -46,6 +46,7 @@ class Habberdash.ControlsController extends Spine.Controller
 
 
   hide: ->
+    Habberdash.flash('Press ESC to show the controls again')
     @toggle()
     @$el.hide()
 

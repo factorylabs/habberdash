@@ -1,0 +1,20 @@
+#flash_message {
+  position: fixed;
+  z-index: 20001;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 60px;
+  line-height: 60px;
+  margin-top: -30px;
+  margin-left: -250px;
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.4em;
+  color: #ddd;
+  opacity: 0;
+  display: none;
+}
