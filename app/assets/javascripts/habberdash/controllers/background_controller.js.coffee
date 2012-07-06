@@ -47,7 +47,7 @@ class Habberdash.BackgroundController extends Spine.Controller
       height = windowDimensions.height
       width = windowDimensions.height * @imageDimensions.ratio
 
-    @$el.css({position: 'absolute', top: 0, left: 0, zIndex: '-1', width: '100%', overflow: 'hidden', height: windowDimensions.height})
+    @$el.css({position: 'fixed', top: 0, left: 0, zIndex: '-1', overflow: 'hidden'})
 
     @$image.css
       position: 'absolute'
