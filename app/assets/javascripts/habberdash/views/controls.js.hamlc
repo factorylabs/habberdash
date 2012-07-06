@@ -2,12 +2,15 @@
   %i.icon-cog
 
 %ul
-  %li{ data: {action: 'Widgets'} }
+  %li{ data: {action: 'hide'} }
+    %i.icon-eye-open
+    Hide UI
+  %li{ data: {modal: 'Widgets'} }
     %i.icon-plus-sign
     Widgets
-  %li{ data: {action: 'Settings'} }
+  %li{ data: {modal: 'Settings'} }
     %i.icon-cogs
     Settings
-  %li{ data: {action: 'Dashboards'} }
+  %li{ data: {modal: 'Dashboards'} }
     %i.icon-dashboard
     Dashboards

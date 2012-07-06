@@ -3,6 +3,7 @@ class Habberdash.ControlsController extends Spine.Controller
   events:
     'tap h1': 'toggle'
     'tap [data-action]': 'onAction'
+    'tap [data-modal]': 'onModal'
 
 
   constructor: ->
@@ -12,17 +13,24 @@ class Habberdash.ControlsController extends Spine.Controller
     @options = $.extend(@options, Habberdash.config.dashboardAttributes())
 
     @html(@view('controls', @options))
+    @initialize()
 
+    @opened = false
+    @$control = @$('h1')
+    @$navigation = @$('ul').hide()
+
+    Habberdash.Dashboard.bind 'save', =>
+      @options = $.extend(@options, Habberdash.config.dashboardAttributes())
+      @initialize()
+
+
+  initialize: ->
     @addCss {
       '#controls h1 i': {color: @options.color, opacity: 0.5}
       '#controls h1:hover i, #controls.open h1 i': {color: '#FFF', opacity: 1}
       '#controls h1:hover, #controls.open h1': {backgroundColor: @options.color}
       '#controls li:hover i': {color: @options.color}
     }
-
-    @opened = false
-    @$control = @$('h1')
-    @$navigation = @$('ul').hide()
 
 
   toggle: ->
@@ -37,9 +45,29 @@ class Habberdash.ControlsController extends Spine.Controller
       @opened = true
 
 
-  onAction: (event) ->
-    action = $(event.target).closest('[data-action]').data('action')
-    if Habberdash["#{action}Controller"]
-      new Habberdash["#{action}Controller"]()
+  hide: ->
+    @toggle()
+    @$el.hide()
+
+
+  show: (e = null) =>
+    if e
+      return unless e.keyCode == 27
+      $(document).off('keydown', @show)
+    @$el.show()
+
+
+  onAction: (e) ->
+    action = $(e.target).closest('[data-action]').data('action')
+    switch action
+      when 'hide'
+        $(document).on('keydown', @show)
+        @hide()
+
+
+  onModal: (e) ->
+    modal = $(e.target).closest('[data-modal]').data('modal')
+    if Habberdash["#{modal}Controller"]
+      new Habberdash["#{modal}Controller"]()
     else
-      throw "#{action}Controller not found."
+      throw "#{modal}Controller not found."

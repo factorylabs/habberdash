@@ -3,7 +3,7 @@ class Habberdash.Dashboard extends Spine.Model
   @belongsTo 'configuration', 'Habberdash.Configuration'
 
   @defaults:
-    color: '#222'
+    color: '#444'
     image: '/assets/backgrounds/standard-dark.jpg'
     backgroundType: 'center-scale' # tile, center, scale
 
@@ -30,3 +30,15 @@ class Habberdash.Dashboard extends Spine.Model
         throw "Dashboard id (#{attrs['id']}) already taken."
       @changeID(attrs['id'], false)
     super
+
+
+  widgets: ->
+    [
+      {
+        type: 'demo'
+      }
+      {
+        type: 'example'
+        title: 'Something'
+      }
+    ]

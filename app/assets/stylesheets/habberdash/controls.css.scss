@@ -13,8 +13,13 @@
     font-size: 6em;
     text-align: center;
     cursor: pointer;
-    &:hover {
+  }
+  &.open h1, h1:hover {
+    color: #fff;
+    > i {
+      text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.5);
       color: #fff;
+      opacity: 1
     }
   }
   ul {

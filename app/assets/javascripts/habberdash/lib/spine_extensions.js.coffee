@@ -28,13 +28,10 @@ Spine.Controller.include
     for selector, styles of options
       declarations = []
       declarations.push("#{name.toDash()}:#{value}") for name, value of styles
-      console.debug(declarations)
       if sheet.insertRule
         sheet.insertRule("#{selector} {#{declarations.join(' !important;')} !important;}", sheet.cssRules?.length || 0)
       else
         sheet.addRule("#{selector} {#{declarations.join(';')}}", -1)
-
-    console.debug(sheet.rules)
 
 # Model Additions
 #----------------------------------------------------------------------------------------------------/
