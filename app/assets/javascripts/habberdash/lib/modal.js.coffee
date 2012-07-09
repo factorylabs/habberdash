@@ -3,7 +3,7 @@ class Habberdash.Modal extends Spine.Controller
 
   @instance: null
 
-  constructor: (options) ->
+  constructor: (options = {}) ->
     if Habberdash.Modal.instance
       Habberdash.Modal.instance.update(options)
       return Habberdash.Modal.instance
@@ -53,6 +53,7 @@ class Habberdash.Modal extends Spine.Controller
 
   show: ->
     @showing = true
+    @$title.hide() unless @title
     @position()
 
     @$overlay.show().css({opacity: 0})
@@ -65,9 +66,9 @@ class Habberdash.Modal extends Spine.Controller
 
 
   setTitle: ->
-    @$('h1.modal-title span').html(@title)
+    @$('.modal-title span').html(@title)
     if @options.disallowClosing
-      @$('h1.modal-title .modal-close').show()
+      @$('.modal-title .modal-close').show()
 #    else
 #      @$('h1.modal-title .modal-close').hide()
 

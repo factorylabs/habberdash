@@ -70,7 +70,7 @@
       }
     }
     div, form {
-      &.span1, &.span2, &.span3, &.span4, &.span5, &.span6, &.span7, &.span8 {
+      &.span4, &.span5, &.span6 {
         margin-left: 0;
         padding-left: 18px;
         border-left: 2px solid #bbb;
@@ -79,6 +79,9 @@
           padding-left: 20px;
         }
       }
+    }
+    form {
+      margin: 0;
     }
     label, input, button, select, textarea {
       font-size: 1.5em;
