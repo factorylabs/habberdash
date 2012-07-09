@@ -165,6 +165,7 @@ class Habberdash.Modal extends Spine.Controller
     @contents = true
     @$display.html(element.el or element)
     @refreshElements()
+    @$content.scrollTop(0, 0)
     Habberdash.translateHtml(@$el)
     @$el
 

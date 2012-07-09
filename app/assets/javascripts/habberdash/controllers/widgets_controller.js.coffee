@@ -14,7 +14,7 @@ class Habberdash.WidgetsController extends Habberdash.Modal
 
 
   back: ->
-    @loadContent(@view('widgets', Habberdash.config))
+    @loadContent(@view('widget_list', Habberdash.config))
 
 
   onInstallWidget: (event) ->
