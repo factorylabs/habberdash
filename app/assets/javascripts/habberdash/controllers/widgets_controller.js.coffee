@@ -1,8 +1,9 @@
 class Habberdash.WidgetsController extends Habberdash.Modal
 
   events:
-    'tap img': 'onInstallWidget'
+    'tap .install': 'configure'
     'tap .back': 'back'
+    'submit form': 'create'
 
 
   constructor: ->
@@ -13,11 +14,19 @@ class Habberdash.WidgetsController extends Habberdash.Modal
     @show()
 
 
-  back: ->
+  back: (e) ->
+    e.stopPropagation()
+    e.preventDefault()
     @loadContent(@view('widget_list', Habberdash.config))
 
 
-  onInstallWidget: (event) ->
-    widgetName = $(event.target).closest('[data-name]').data('name')
-    @loadContent(@view('widget_details', Habberdash.Widgets[widgetName]))
+  configure: (e) ->
+    e.preventDefault()
+    @widgetName = $(e.target).closest('[data-name]').data('name')
+    @loadContent(@view('widget_details', Habberdash.Widgets[@widgetName]))
 
+
+  create: (e) ->
+    return unless $(e.target).attr('type') == 'submit'
+    e.preventDefault()
+    Habberdash.config.addWidget(@widgetName)

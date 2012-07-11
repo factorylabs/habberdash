@@ -70,6 +70,10 @@ class Habberdash.Configuration extends Spine.Model
     return @dashboards().first()
 
 
+  addWidget: (name, options) ->
+    @dashboard().addWidget(name, options)
+
+
   toJSON: ->
     for dashboard in @dashboards().all()
       dashboard.toJSON()

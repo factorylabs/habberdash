@@ -1,16 +1,27 @@
-%div{ style: 'width:700px;height:700px;' }
-  %span.back Back
-  %img{ src: "#{@spec.image}", width: 150, height: 126 }
-  %dl
-    %dt Name
-    %dd= @spec.name
-    %dt Version
-    %dd= @spec.version
-    %dt Authors
-    %dd= @spec.authors
-    %dt Email
-    %dd= @spec.email
-    %dt Homepage
-    %dd= @spec.homepage
+.span9{ style: 'height:600px' }
+  .row
+    .span4
+      %img{ src: "#{@spec.image}", width: 150, height: 126 }
+      %dl
+        %dt Name
+        %dd= @spec.name
+        %dt Version
+        %dd= @spec.version
+        %dt Authors
+        %dd= @spec.authors
+        %dt Email
+        %dd= @spec.email
+        %dt Homepage
+        %dd= @spec.homepage
+      %p= @spec.description
 
-  %p= @spec.description
+    %form.span5
+      %fieldset
+        .control-group
+          %label.control-label{ for: 'widget_title' } Title
+          .controls
+            %input#widget_title.span5{ name: 'title', type: 'text' }
+
+      .form-actions
+        %button.btn.back Back
+        %button.btn.btn-primary{ type: 'submit' } Install Widget

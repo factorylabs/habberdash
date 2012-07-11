@@ -1,11 +1,12 @@
 class Habberdash.Dashboard extends Spine.Model
-  @configure 'Dashboard', 'title', 'color', 'image', 'backgroundType'
+  @configure 'Dashboard', 'title', 'color', 'image', 'backgroundType', 'widgets'
   @belongsTo 'configuration', 'Habberdash.Configuration'
 
   @defaults:
     color: '#444'
     image: '/assets/backgrounds/standard-dark.jpg'
     backgroundType: 'center-scale' # tile, center, scale
+    widgets: []
 
 
   constructor: (attrs = {}) ->
@@ -33,13 +34,7 @@ class Habberdash.Dashboard extends Spine.Model
     super
 
 
-  widgets: ->
-    [
-      {
-        type: 'demo'
-      }
-      {
-        type: 'example'
-        title: 'Something'
-      }
-    ]
+  addWidget: (name, options = {}) ->
+    options.type = name
+    @widgets.push(options)
+
