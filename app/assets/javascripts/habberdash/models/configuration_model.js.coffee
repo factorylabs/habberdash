@@ -1,6 +1,6 @@
-class Habberdash.Configuration extends Spine.Model
-  @configure 'Configuration', 'config'
-  @hasMany 'dashboards', 'Habberdash.Dashboard'
+class Habberdash.ConfigurationModel extends Spine.Model
+  @configure 'ConfigurationModel', 'config'
+  @hasMany 'dashboards', 'Habberdash.DashboardModel'
   @extend Spine.Model.Ajax
 
   resourceUrl: -> '/configuration'
@@ -16,8 +16,8 @@ class Habberdash.Configuration extends Spine.Model
 
     @activeDashboard = @storedDashboard()
 
-    Habberdash.Dashboard.bind 'save', => @save()
-    Habberdash.Dashboard.bind 'destroy', => @save()
+    Habberdash.DashboardModel.bind 'save', => @save()
+    Habberdash.DashboardModel.bind 'destroy', => @save()
 
 
   dashboard: (id = null) ->
@@ -46,8 +46,8 @@ class Habberdash.Configuration extends Spine.Model
       dashboard = @dashboards().find(attrs['clone_id']).dup()
       dashboard.updateAttributes(attrs)
     else
-      delete(attrs.id) if attrs['id'] && Habberdash.Dashboard.findByAttribute('id', attrs['id'])
-      dashboard = new Habberdash.Dashboard(attrs)
+      delete(attrs.id) if attrs['id'] && Habberdash.DashboardModel.findByAttribute('id', attrs['id'])
+      dashboard = new Habberdash.DashboardModel(attrs)
     return dashboard
 
 

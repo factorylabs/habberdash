@@ -9,7 +9,7 @@ class Habberdash.BackgroundController extends Spine.Controller
     @html(@view('background', @options))
     @initialize()
 
-    Habberdash.Dashboard.bind 'save', =>
+    Habberdash.DashboardModel.bind 'save', =>
       @options = $.extend(@options, Habberdash.config.dashboardAttributes())
       @initialize()
 

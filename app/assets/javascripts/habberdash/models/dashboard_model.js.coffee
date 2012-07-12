@@ -1,6 +1,6 @@
-class Habberdash.Dashboard extends Spine.Model
-  @configure 'Dashboard', 'title', 'color', 'image', 'backgroundType', 'widgets'
-  @belongsTo 'configuration', 'Habberdash.Configuration'
+class Habberdash.DashboardModel extends Spine.Model
+  @configure 'DashboardModel', 'title', 'color', 'image', 'backgroundType', 'widgets'
+  @belongsTo 'configuration', 'Habberdash.ConfigurationModel'
 
   @defaults:
     color: '#444'
@@ -10,7 +10,7 @@ class Habberdash.Dashboard extends Spine.Model
 
 
   constructor: (attrs = {}) ->
-    super($.extend({}, Habberdash.Dashboard.defaults, attrs))
+    super($.extend({}, Habberdash.DashboardModel.defaults, attrs))
 
 
   validate: ->
@@ -27,7 +27,7 @@ class Habberdash.Dashboard extends Spine.Model
   updateAttributes: (attrs, options) ->
     if attrs['id'] && @id && attrs['id'] != @id
       attrs['id'] = attrs['id'].toSlug()
-      if Habberdash.Dashboard.findByAttribute('id', attrs['id'])
+      if Habberdash.DashboardModel.findByAttribute('id', attrs['id'])
         delete(attrs.id)
       else
         @changeID(attrs['id'], false)

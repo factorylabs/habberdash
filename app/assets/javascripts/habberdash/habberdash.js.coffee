@@ -31,8 +31,8 @@ class @Habberdash extends Spine.Controller
 
     # load configuration / dashboard data and initialize when done
     Habberdash.loadingIndicator()
-    Habberdash.Configuration.bind('refresh', (configuration) => @initialize(configuration[0]))
-    Habberdash.Configuration.fetch()
+    Habberdash.ConfigurationModel.bind('refresh', (configuration) => @initialize(configuration[0]))
+    Habberdash.ConfigurationModel.fetch()
 
 
   initialize: (configuration) ->

@@ -19,7 +19,7 @@ class Habberdash.ControlsController extends Spine.Controller
     @$control = @$('h1')
     @$navigation = @$('ul').hide()
 
-    Habberdash.Dashboard.bind 'save', =>
+    Habberdash.DashboardModel.bind 'save', =>
       @options = $.extend(@options, Habberdash.config.dashboardAttributes())
       @initialize()
 
