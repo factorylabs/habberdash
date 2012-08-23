@@ -9,11 +9,3 @@
           %dd= klass.spec.name
           %dt Summary
           %dd= klass.spec.summary
-      .widget.span3{ data: {filter: "#{klass.spec.name}:#{klass.spec.summary}", name: name} }
-        %img{ src: "#{klass.spec.image}", width: 150, height: 126 }
-        %button.btn.btn-primary.install Install
-        %dl
-          %dt Name
-          %dd= klass.spec.name
-          %dt Summary
-          %dd= klass.spec.summary
