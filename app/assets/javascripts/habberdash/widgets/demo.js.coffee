@@ -11,7 +11,8 @@ class Habberdash.Widgets.Demo extends Habberdash.Widget
     description: 'Habberdash: Write dashboard widgets, and embed them within your application.'
   }
 
-  @addDependency 'Liquid Metal', 'https://raw.github.com/rmm5t/liquidmetal/master/liquidmetal.js'
+  # Idea for later
+  #@addDependency 'Liquid Metal', 'https://raw.github.com/rmm5t/liquidmetal/master/liquidmetal.js'
 
 #  @options:
 #    title: ['string', 'testing', {maxLength: 20}]
