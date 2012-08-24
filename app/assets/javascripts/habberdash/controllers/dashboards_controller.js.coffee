@@ -33,4 +33,5 @@ class Habberdash.DashboardsController extends Habberdash.Modal
     dashboard = Habberdash.config.createDashboard(params)
     return @displayErrors(form, dashboard.validate()) unless dashboard.save()
 
+    Habberdash.config.activeDashboard = dashboard
     @navigate("/#{dashboard.id}")
